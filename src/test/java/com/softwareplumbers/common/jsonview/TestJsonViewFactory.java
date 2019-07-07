@@ -66,4 +66,21 @@ public class TestJsonViewFactory {
             .build();
         assertEquals(testObject, JsonViewFactory.asJson(new NestedTestObject()));
     }
+    
+    private static class HybridTestObject {
+        public String outer = "A";
+        public JsonObject inner = Json.createObjectBuilder().add("one",1).add("two","B").add("three",3.0).build();
+        public String getOuter() { return outer; }
+        public JsonObject getInner() { return inner; }
+    }
+
+    @Test
+    public void testHybridTestObject() {
+        JsonObject testObject = Json.createObjectBuilder()
+            .add("outer", "A")
+            .add("inner", Json.createObjectBuilder().add("one",1).add("two","B").add("three",3.0))
+            .build();
+        assertEquals(testObject, JsonViewFactory.asJson(new HybridTestObject()));
+    }
+
 }
