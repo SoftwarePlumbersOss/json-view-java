@@ -40,7 +40,7 @@ artifacts {
 }
 
 repositories {
-	maven { url propValue("proxyMavenCentral", "https://repo.maven.apache.org/maven2/") }
+    maven { url propValue("proxyMavenCentral", "https://repo.maven.apache.org/maven2/") }
     maven { url 'https://nexus.softwareplumbers.com/repository/maven-oss' }
     maven { url 'https://nexus.softwareplumbers.com/repository/maven-oss-snapshot' }
 }

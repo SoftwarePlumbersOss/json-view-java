@@ -43,6 +43,12 @@ public class JsonViewFactory {
         return new JsonMapView(items);
     }
     
+    public static JsonObject asJsonObject(Object obj) {
+        if (obj == null) return null;
+        if (obj instanceof Map) return asJson((Map<String,?>)obj);
+        return new JsonMapView(new BeanMap(obj));
+    }
+    
     public static JsonValue asJson(Object obj) {
         if (obj == null) return JsonValue.NULL;
         if (obj instanceof JsonValue) return (JsonValue)obj;
