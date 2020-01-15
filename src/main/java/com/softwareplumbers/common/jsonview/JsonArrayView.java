@@ -18,11 +18,11 @@ import javax.json.JsonObject;
 import javax.json.JsonString;
 import javax.json.JsonValue;
 
-/**
+/** Make a Java List look like a JsonArray.
  *
  * @author jonathan.local
  */
-public class JsonArrayView extends AbstractList<JsonValue> implements JsonArray {
+class JsonArrayView extends AbstractList<JsonValue> implements JsonArray {
     
     private final List<?> base;
     

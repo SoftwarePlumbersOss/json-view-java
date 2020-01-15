@@ -11,13 +11,12 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-import java.util.function.BiFunction;
 
-/**
+/** Per-class cache of data that supports for mapping a bean to a java map interface.
  *
  * @author jonathan.local
  */
-public class BeanMapper {
+class BeanMapper {
 
     private static final Map<Class,BeanMapper> mappers = Collections.synchronizedMap(new HashMap<Class,BeanMapper>());
     

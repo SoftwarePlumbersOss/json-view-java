@@ -9,6 +9,10 @@ import javax.json.JsonValue;
 import javax.json.JsonNumber;
 import javax.json.JsonString;
 
+/** Create dynamic Json views of complex object types
+ * 
+ * @author jonathan
+ */
 public class JsonViewFactory {
     
 	public static JsonString asJson(String obj) {
@@ -49,6 +53,11 @@ public class JsonViewFactory {
         return new JsonMapView(new BeanMap(obj));
     }
     
+    /** Convert any Java object to a dynamic Json view
+     * 
+     * @param obj Object to convert
+     * @return json view of the object
+     */
     public static JsonValue asJson(Object obj) {
         if (obj == null) return JsonValue.NULL;
         if (obj instanceof JsonValue) return (JsonValue)obj;

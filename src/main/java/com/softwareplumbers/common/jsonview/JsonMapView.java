@@ -13,18 +13,17 @@ import java.util.Collection;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
-import javax.json.Json;
 import javax.json.JsonArray;
 import javax.json.JsonNumber;
 import javax.json.JsonObject;
 import javax.json.JsonString;
 import javax.json.JsonValue;
 
-/**
+/** Create a JsonObject view of a Java map.
  *
  * @author jonathan.local
  */
-public class JsonMapView implements JsonObject {
+class JsonMapView implements JsonObject {
     
     private static class EntrySetView extends AbstractSet<Entry<String,JsonValue>> {
         

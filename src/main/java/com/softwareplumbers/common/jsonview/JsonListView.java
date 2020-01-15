@@ -15,11 +15,11 @@ import javax.json.JsonObject;
 import javax.json.JsonString;
 import javax.json.JsonValue;
 
-/**
+/** View a list as a list of Json Values
  *
  * @author jonathan.local
  */
-public class JsonListView<T extends JsonValue> extends AbstractList<T> {
+class JsonListView<T extends JsonValue> extends AbstractList<T> {
     
     private List<?> base;
     private Function<Object,T> castFunction;

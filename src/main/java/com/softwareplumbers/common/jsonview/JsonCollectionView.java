@@ -10,11 +10,11 @@ import java.util.Collection;
 import java.util.Iterator;
 import javax.json.JsonValue;
 
-/**
+/** View a collection of beans as a collection of JsonValue objects
  *
  * @author jonathan.local
  */
-public class JsonCollectionView extends AbstractCollection<JsonValue> {
+class JsonCollectionView extends AbstractCollection<JsonValue> {
     
     private Collection<?> base;
     

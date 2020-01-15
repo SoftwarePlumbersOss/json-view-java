@@ -13,11 +13,11 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
-/**
+/** Convert a java beam to map
  *
  * @author jonathan.local
  */
-public class BeanMap implements Map<String,Object> {
+class BeanMap implements Map<String,Object> {
     
     private final Object bean;
     private final BeanMapper mapper;

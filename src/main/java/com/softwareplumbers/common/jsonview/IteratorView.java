@@ -7,13 +7,12 @@ package com.softwareplumbers.common.jsonview;
 
 import java.util.Iterator;
 import java.util.function.Function;
-import javax.json.JsonValue;
 
-/**
+/** Convert an iterator from one type to another using a mapping function
  *
  * @author jonathan.local
  */
-public class IteratorView<U,T> implements Iterator<T> {
+class IteratorView<U,T> implements Iterator<T> {
     
     private Iterator<U> base;
     private Function<U,T> map;
