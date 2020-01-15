@@ -62,7 +62,7 @@ uploadArchives {
             repository(url: "https://nexus.softwareplumbers.com/repository/maven-oss") {
                 authentication(userName: propValue("mavenUploadUser",""), password: propValue("mavenUploadPassword",""))
             }
-            snapshotRepository(url: "https://nexus.softwareplumbers.com/repository/maven-doctane-snapshot") {
+            snapshotRepository(url: "https://nexus.softwareplumbers.com/repository/maven-oss-snapshot") {
                 authentication(userName: propValue("mavenUploadUser",""), password: propValue("mavenUploadPassword",""))
             }
         }
