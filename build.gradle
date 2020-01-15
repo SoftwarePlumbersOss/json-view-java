@@ -28,6 +28,7 @@ test {
 javadoc {
     source = sourceSets.main.allJava
     classpath = config
+}
     
 task javadocJar(type: Jar) {
     from javadoc
@@ -52,13 +53,14 @@ repositories {
 }
 
 uploadArchives {
-  repositories {
-    mavenDeployer {
-      repository(url: "https://nexus.softwareplumbers.com/repository/maven-oss") {
-      	authentication(userName: propValue("mavenUploadUser",""), password: propValue("mavenUploadPassword",""))
-      }
+    dependsOn check
+    repositories {
+        mavenDeployer {
+            repository(url: "https://nexus.softwareplumbers.com/repository/maven-oss") {
+                authentication(userName: propValue("mavenUploadUser",""), password: propValue("mavenUploadPassword",""))
+            }
+        }
     }
-  }
 }
 
 sourceCompatibility = 1.8
