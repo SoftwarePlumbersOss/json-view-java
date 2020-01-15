@@ -38,7 +38,7 @@ class JsonListView<T extends JsonValue> extends AbstractList<T> {
         this.base = base;
         
         if (JsonString.class.isAssignableFrom(type)) {
-            castFunction = obj -> (T)Json.createValue(obj.toString());
+            castFunction = obj -> (T)JsonViewFactory.asJson(obj.toString());
         } else if (JsonNumber.class.isAssignableFrom(type)) {
             castFunction = obj -> (T)JsonViewFactory.asJson((Number)obj);            
         } else if (JsonArray.class.isAssignableFrom(type)) {
