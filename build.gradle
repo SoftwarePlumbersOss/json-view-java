@@ -27,7 +27,6 @@ test {
 
 javadoc {
     source = sourceSets.main.allJava
-    classpath = config
 }
     
 task javadocJar(type: Jar) {
