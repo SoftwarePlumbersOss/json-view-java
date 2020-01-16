@@ -22,6 +22,10 @@ public class JsonViewFactory {
             @Override public String getString() { return obj; }
             @Override public CharSequence getChars() { return obj; }
             @Override public ValueType getValueType() { return ValueType.STRING; } 
+            @Override public boolean equals(Object other) {
+                return other !=null && other instanceof JsonString && obj.equals(((JsonString)other).getString());
+            }
+            @Override public int hashCode() { return obj.hashCode(); }
         };
 	}
     
@@ -37,6 +41,14 @@ public class JsonViewFactory {
             @Override public BigInteger bigIntegerValueExact() { return BigInteger.valueOf(number); }
             @Override public double doubleValue() { return (double)number; }
             @Override public BigDecimal bigDecimalValue() { return BigDecimal.valueOf(number); }
+            @Override public boolean equals(Object other) {
+                try {
+                    return other !=null && other instanceof JsonNumber && number == (((JsonNumber)other).intValueExact());
+                } catch (ArithmeticException e) {
+                    return false;
+                }
+            }
+            @Override public int hashCode() { return Integer.valueOf(number).hashCode(); }
         };
     }
     
@@ -57,6 +69,14 @@ public class JsonViewFactory {
             @Override public BigInteger bigIntegerValueExact() { return BigInteger.valueOf(number); }
             @Override public double doubleValue() { return (double)number; }
             @Override public BigDecimal bigDecimalValue() { return BigDecimal.valueOf(number); }
+            @Override public boolean equals(Object other) {
+                try {
+                    return other !=null && other instanceof JsonNumber && number == (((JsonNumber)other).longValueExact());
+                } catch (ArithmeticException e) {
+                    return false;
+                }
+            }
+            @Override public int hashCode() { return Long.valueOf(number).hashCode(); }
         };
     }
 
@@ -72,6 +92,11 @@ public class JsonViewFactory {
             @Override public BigInteger bigIntegerValueExact() { throw new ArithmeticException(number + "cannot be exactly converted to a BigInteger"); }
             @Override public double doubleValue() { return number; }
             @Override public BigDecimal bigDecimalValue() { return BigDecimal.valueOf(number); }
+            @Override public boolean equals(Object other) {
+                return other !=null && other instanceof JsonNumber && number == (((JsonNumber)other).doubleValue());
+            }
+            @Override public int hashCode() { return Double.valueOf(number).hashCode(); }
+
         };
     }
     
