@@ -26,6 +26,7 @@ public class JsonViewFactory {
                 return other !=null && other instanceof JsonString && obj.equals(((JsonString)other).getString());
             }
             @Override public int hashCode() { return obj.hashCode(); }
+            @Override public String toString() { return obj; }
         };
 	}
     
@@ -49,6 +50,7 @@ public class JsonViewFactory {
                 }
             }
             @Override public int hashCode() { return Integer.valueOf(number).hashCode(); }
+            @Override public String toString() { return Integer.toString(number); }
         };
     }
     
@@ -77,6 +79,7 @@ public class JsonViewFactory {
                 }
             }
             @Override public int hashCode() { return Long.valueOf(number).hashCode(); }
+            @Override public String toString() { return Long.toString(number); }
         };
     }
 
@@ -96,6 +99,7 @@ public class JsonViewFactory {
                 return other !=null && other instanceof JsonNumber && number == (((JsonNumber)other).doubleValue());
             }
             @Override public int hashCode() { return Double.valueOf(number).hashCode(); }
+            @Override public String toString() { return Double.toString(number); }
 
         };
     }
